@@ -1,0 +1,90 @@
+.about-content {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 50px;
+}
+
+.about-text p {
+  margin-bottom: 15px;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+.about-visual-wrapper {
+  position: relative;
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aiml-visual {
+  width: 100%;
+  max-width: 350px;
+  aspect-ratio: 1;
+  position: relative;
+}
+
+.aiml-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 20px rgba(122, 30, 43, 0.2));
+  transition: var(--transition);
+}
+
+.aiml-visual:hover .aiml-svg {
+  filter: drop-shadow(0 0 30px rgba(165, 42, 58, 0.4));
+  transform: translateY(-5px);
+}
+
+.anim-orbit {
+  transform-origin: center;
+  animation: spin 20s linear infinite;
+}
+
+.anim-orbit-reverse {
+  transform-origin: center;
+  animation: spin-reverse 25s linear infinite;
+}
+
+.anim-line {
+  animation: pulse-opacity 3s ease-in-out infinite alternate;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes pulse-opacity {
+  from { opacity: 0.3; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-orbit,
+  .anim-orbit-reverse,
+  .anim-line {
+    animation: none;
+  }
+  .aiml-visual:hover .aiml-svg {
+    transform: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-visual-wrapper {
+    margin: 40px auto 0;
+    width: 80%;
+  }
+}

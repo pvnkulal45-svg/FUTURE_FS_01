@@ -1,0 +1,117 @@
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  border: 1px solid var(--card-border);
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transition);
+  height: 100%;
+}
+
+.project-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-color: var(--card-border-hover);
+  box-shadow: 0 10px 30px rgba(165, 42, 58, 0.15);
+}
+
+.project-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.folder-icon {
+  color: var(--accent-color);
+  width: 40px;
+  height: 40px;
+}
+
+.folder-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.project-links {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.project-links a {
+  color: var(--text-secondary);
+  width: 20px;
+  height: 20px;
+}
+
+.project-links a:hover {
+  color: var(--accent-color);
+}
+
+.project-links svg {
+  width: 100%;
+  height: 100%;
+}
+
+.project-title {
+  font-size: 1.4rem;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.project-description {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  margin-bottom: 20px;
+}
+
+.project-category {
+  color: var(--accent-color);
+  font-family: monospace;
+  font-size: 0.85rem;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.project-feature-list {
+  margin-top: 15px;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.project-feature-list li {
+  position: relative;
+  padding-left: 15px;
+  margin-bottom: 5px;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.project-feature-list li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+  font-size: 0.9rem;
+}
+
+.project-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: auto;
+}
+
+.project-tech-list li {
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}

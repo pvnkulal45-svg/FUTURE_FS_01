@@ -1,0 +1,171 @@
+.bg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background-color: var(--bg-color);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Gradient Mesh base */
+.bg-mesh {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(at 0% 0%, rgba(122, 30, 43, 0.15) 0px, transparent 50%),
+              radial-gradient(at 100% 0%, rgba(90, 22, 32, 0.15) 0px, transparent 50%),
+              radial-gradient(at 100% 100%, rgba(165, 42, 58, 0.15) 0px, transparent 50%),
+              radial-gradient(at 0% 100%, rgba(122, 30, 43, 0.15) 0px, transparent 50%);
+  opacity: 0.8;
+  background-size: 200% 200%;
+  animation: bgGradientMove 20s ease infinite alternate;
+}
+
+/* Futuristic Grid Pattern */
+.bg-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+  animation: gridMove 30s linear infinite;
+}
+
+/* Glowing Orbs */
+.bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  animation: float 20s infinite ease-in-out;
+  transform: translateZ(0); /* Hardware acceleration */
+}
+
+.orb-1 {
+  width: 400px;
+  height: 400px;
+  background: rgba(122, 30, 43, 0.3); /* Deep Red */
+  top: -100px;
+  left: -100px;
+}
+
+.orb-2 {
+  width: 500px;
+  height: 500px;
+  background: rgba(90, 22, 32, 0.2); /* Maroon */
+  bottom: -200px;
+  right: -100px;
+  animation-delay: -5s;
+}
+
+.orb-3 {
+  width: 300px;
+  height: 300px;
+  background: rgba(165, 42, 58, 0.25); /* Crimson */
+  top: 40%;
+  left: 60%;
+  animation-delay: -10s;
+}
+
+/* Radial Glow for Hero */
+.bg-hero-glow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80vw;
+  max-width: 1000px;
+  height: 500px;
+  background: radial-gradient(ellipse at top, rgba(122, 30, 43, 0.2) 0%, transparent 70%);
+}
+
+/* Particles */
+.bg-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: drift linear infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.05);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+}
+
+@keyframes drift {
+  from {
+    transform: translateY(100vh);
+  }
+  to {
+    transform: translateY(-100px);
+  }
+}
+
+@keyframes bgGradientMove {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+@keyframes gridMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 50px 50px; }
+}
+
+.bg-streaks {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.streak {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  animation: streakMove linear infinite;
+  opacity: 0;
+}
+
+@keyframes streakMove {
+  0% { transform: translateX(-50vw); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateX(100vw); opacity: 0; }
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .bg-orb, .particle, .bg-mesh, .bg-grid, .streak {
+    animation: none;
+  }
+}

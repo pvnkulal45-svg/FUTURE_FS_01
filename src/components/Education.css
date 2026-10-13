@@ -1,0 +1,120 @@
+.education-timeline {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  padding-left: 30px;
+}
+
+.education-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 6px;
+  height: 100%;
+  width: 2px;
+  background-color: var(--surface-hover);
+}
+
+.education-item {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.education-item:last-child {
+  margin-bottom: 0;
+}
+
+.education-marker {
+  position: absolute;
+  top: 5px;
+  left: -30px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--bg-color);
+  border: 2px solid var(--accent-color);
+  z-index: 1;
+}
+
+.education-card {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.education-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--card-border-hover);
+  box-shadow: 0 10px 15px -3px rgba(165, 42, 58, 0.2);
+}
+
+.education-image-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.education-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+  transform: scale(0.95);
+}
+
+.reveal-active .education-image {
+  transform: scale(1);
+}
+
+.education-card:hover .education-image {
+  transform: scale(1.05);
+}
+
+.education-content {
+  padding: 25px;
+}
+
+@media (min-width: 768px) {
+  .education-card {
+    flex-direction: row;
+  }
+  .education-image-container {
+    width: 40%;
+    height: auto;
+    min-height: 200px;
+  }
+  .education-content {
+    width: 60%;
+  }
+}
+
+.degree {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin-bottom: 5px;
+}
+
+.institution {
+  font-size: 1.1rem;
+  color: var(--accent-color);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.education-content .date {
+  display: block;
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 15px;
+}
+
+.details {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
